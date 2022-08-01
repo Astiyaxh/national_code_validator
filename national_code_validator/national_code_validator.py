@@ -1,4 +1,4 @@
-national_code = input("Enter your melicode: ")
+national_code = input("Enter your nationalcode: ")
 flag = 0
 
 def normal_melicode(national_code):
