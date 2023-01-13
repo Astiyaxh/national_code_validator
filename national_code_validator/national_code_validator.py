@@ -1,7 +1,4 @@
-national_code = input("Enter your nationalcode: ")
-flag = 0
-
-def normal_melicode(national_code):
+def valid_melicode(national_code):
     sum , control_digit, validation = 0,0,0
     national_code = int(national_code)
     control_digit = national_code % 10
@@ -41,16 +38,21 @@ def zfill_national_code(national_code):
             print(11 - validation," Your national code in valid")
         else:
             print(11 - validation," Your national code in Invalid")
-            
+
+
+national_code = input("Enter your melicode: ")
+flag = 0
+
 
 while flag == 0:
-    if national_code == '1111111111' or national_code == '2222222222' or national_code == '3333333333' or national_code == '4444444444' or national_code == '5555555555' or national_code == '6666666666' or national_code == '7777777777' or national_code == '8888888888' or national_code == '9999999999' or national_code == '0000000000':
-        national_code = input("Try again don't be cute with me\nEnter your melicode: ")
-    if  (str(national_code[0]) == '0' and str(national_code[1]) == '0' and str(national_code[2] == '0')) or (str(national_code[0]) == '0' and str(national_code[1]) == '0') or (str(national_code[0]) == '0'):
+    if len(national_code) < 10 or len(national_code) > 10:
+        national_code = input("Try again your melicode must be 10 digit\nEnter your melicode: ")
+    elif national_code == '1111111111' or national_code == '2222222222' or national_code == '3333333333' or national_code == '4444444444' or national_code == '5555555555' or national_code == '6666666666' or national_code == '7777777777' or national_code == '8888888888' or national_code == '9999999999' or national_code == '0000000000':
+            national_code = input("Try again don't be cute with me\nEnter your melicode: ")
+    elif (str(national_code[0]) == '0'):
         flag = 1
         zfill_national_code(national_code)
-    elif len(national_code) < 10 or len(national_code) > 10:
-        national_code = input("Try again your melicode must be 10 digit\nEnter your melicode: ")
     else:
         flag = 1
-        normal_melicode(national_code)
+        valid_melicode(national_code)
+
